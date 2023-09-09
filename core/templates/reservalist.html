@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+        <div class="d-flex">
+                {% for obj in object_list %}
+                    <div class="d-block card mb-2 m-4">
+                        <div class="card-body">
+                            <h5 class="card-title">{{ obj.nome_empresa }}</h5>
+                            <p>{{ obj.stand }}</p>
+                            <a href="{% url 'detail' obj.pk %}"
+                            class="btn btn-primary">
+                            Ver detalhes
+                            </a>
+                        </div>
+                    </div>
+                {% endfor %}
+        </div>
+{% endblock %}
