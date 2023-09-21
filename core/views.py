@@ -1,8 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
-from django.views.generic.edit import FormView
-from django.views.generic.list import ListView
-from django.views.generic.detail import DetailView
+from django.views.generic import FormView, ListView, DetailView
 from django.contrib import messages
 from .forms import ReservaModelFrom
 from .models import Reserva
@@ -25,7 +23,7 @@ class ReservaListView(ListView):
     model = Reserva
     template_name = "reservalist.html"
 
-    def remove(self, pk=None):
+    def remove(self, pk=None) -> HttpResponse:
         obj = Reserva.objects.get(id=pk)
         obj.delete()
         messages.success(self, "Reserva Removida com sucesso! :)")

@@ -3,7 +3,7 @@
 
 {% block content %}
         <div class="col-md-6">
-            <h1>Formulário de reserva de stand</h1>
+            <h1>Formulário para reservar stand</h1>
             <form action="{% url 'cria_reserva' %}" method="post" class="form" autocomplete="off">
                 {% csrf_token %}
                 {% bootstrap_form form %}
