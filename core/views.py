@@ -23,12 +23,12 @@ class ReservaListView(ListView):
     model = Reserva
     template_name = "reservalist.html"
 
+class ReservaDetailView(DetailView):
+    model = Reserva
+    template_name = "detail.html"
+    
     def remove(self, pk=None) -> HttpResponse:
         obj = Reserva.objects.get(id=pk)
         obj.delete()
         messages.success(self, "Reserva Removida com sucesso! :)")
         return render(self, "reservalist.html")
-
-class ReservaDetailView(DetailView):
-    model = Reserva
-    template_name = "detail.html"
