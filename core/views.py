@@ -1,9 +1,12 @@
 from django.http import HttpResponse
-from django.shortcuts import render
-from django.views.generic import FormView, ListView, DetailView
+from django.shortcuts import render, redirect
+from django.views.generic import FormView, ListView, DetailView, TemplateView
 from django.contrib import messages
 from .forms import ReservaModelFrom
 from .models import Reserva
+
+class ReservaTemplateView(TemplateView):
+    template_name = "home.html"
 
 class ReservaFormView(FormView):
     template_name = "reservaform.html"
@@ -31,4 +34,4 @@ class ReservaDetailView(DetailView):
         obj = Reserva.objects.get(id=pk)
         obj.delete()
         messages.success(self, "Reserva Removida com sucesso! :)")
-        return render(self, "reservalist.html")
+        return redirect("reservas")

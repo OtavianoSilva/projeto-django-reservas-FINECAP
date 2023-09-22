@@ -19,10 +19,30 @@
             </div>
         </nav>
 
-        {% bootstrap_messages %}
+        {% for message in messages %}
+        <div class="message">
+        <div class="container-fluid p-0">
+        <div class="alert {{ message.tags }} alert-dismissible bg-success" role="alert" >
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="True" class="close-button">&times;</span>
+            </button>
+            {{ message }}
+        </div>
+        </div>
+        </div>
+        {% endfor %}
 
         {% block content %}
         {% endblock %}
+
+        <script>
+            $(document).ready(function() {
+                $(".close-button").click(function() {
+                    $(this).parent(".message").hide();
+                });
+            });
+        </script>
+
     </body>
 </html>
     

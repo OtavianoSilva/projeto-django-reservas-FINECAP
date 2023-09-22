@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+<div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
+    <div style="display: flex; flex-wrap: wrap; flex-direction: row; align-items: center;">
+
+<a href="{% url 'cria_reserva' %}">
+<div class="d-flex">
+    <div class="b-block card mb-2 m-4 p-4 border-5" >
+        <h3 class="card-title">Reservar</h3>
+    </div>
+</div>
+</a>
+
+<a href="{% url 'reservas' %}" >
+<div class="d-flex">
+    <div class="b-block card mb-1 m-4 p-4">
+        <h3 class="card-title">Ver reservas</h3>
+    </div>
+</div>
+</a>
+</div>
+</div>
+
+{% endblock %}

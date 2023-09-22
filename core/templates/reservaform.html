@@ -2,6 +2,8 @@
 {% load bootstrap4 %}
 
 {% block content %}
+<a href="{% url 'home' %}" style="margin-left: 1%; margin-top: 1%; text-decoration:none; display:flex; flex-wrap: nowrap; flex-direction: row; align-items: center; gap: 1;"><h1>&#8592;
+</h1> Voltar</a>
         <div class="col-md-6">
             <h1>Formulário de reserva</h1>
             <form action="{% url 'cria_reserva' %}" method="post" class="form" autocomplete="off">

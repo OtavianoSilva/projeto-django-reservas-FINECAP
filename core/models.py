@@ -15,6 +15,7 @@ class Reserva(models.Model):
     quitado = models.BooleanField()
 
     stand = models.OneToOneField(Stand, on_delete=models.CASCADE)
-
+    
     def __str__(self) -> str:
         return self.nome_empresa
+    
