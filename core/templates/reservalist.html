@@ -2,8 +2,7 @@
 {% load bootstrap4 %}
 
 {% block content %}
-<a href="{% url 'home' %}" style="margin-left: 1%; margin-top: 1%; text-decoration:none; display:flex; flex-wrap: nowrap; flex-direction: row; align-items: center; gap: 1;"><h1>&#8592;
-</h1> Voltar</a>
+<a class="btn btn-outline-primary btn-sm"  href="{% url 'home' %}" style="margin:1%;"><h3>&#8592; Voltar </h3></a>
 <table class="table table-primary table-striped">
     <thead>
         <tr>
@@ -21,7 +20,7 @@
         <td>{{ item.cnpj }}</td>
         <td>{{ item.nome_empresa }}</td>
         <td>{{ item.categoria_empresa }}</td>
-        <td>{{ item.quitado }}</td>
+        <td>{% if item.quitado %} Sim {% else %} Não {% endif %}</td>
     </tr>
     {% endfor %}
     </tbody>

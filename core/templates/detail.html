@@ -2,9 +2,9 @@
 {% load bootstrap4 %}
 
 {% block content %}
-<a href="{% url 'reservas' %}" style="margin-left: 1%; margin-top: 1%; text-decoration:none; display:flex; flex-wrap: nowrap; flex-direction: row; align-items: center; gap: 1;"><h1>&#8592;
-</h1> Voltar</a>
-        <div class="d-flex">
+<div class="container d-flex justify-content-center align-items-center flex-column" style="min-height: 100vh; margin-top: 0%;">
+    <a class="btn btn-outline-primary btn-sm"  href="{% url 'reservas' %}" style="margin:1%;"><h3>&#8592; Voltar </h3></a>
+    <div class="d-flex">
             <div class="b-block card mb-1 m-4 p-4">
                 <h3 class="card-title">{{ object.nome_empresa }}</h3>
                 <p>Categoria: {{ object.categoria_empresa }}</p>
@@ -18,4 +18,5 @@
                 </a>
             </div>
         </div>
+    </div>
 {% endblock %}

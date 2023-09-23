@@ -11,7 +11,7 @@ class ReservaTemplateView(TemplateView):
 class ReservaFormView(FormView):
     template_name = "reservaform.html"
     form_class = ReservaModelFrom
-    success_url = "/"
+    success_url = "cria_reserva"
 
     def form_valid(self, form) -> HttpResponse:
         form.save(commit=True)
