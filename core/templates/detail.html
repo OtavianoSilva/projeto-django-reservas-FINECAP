@@ -2,21 +2,23 @@
 {% load bootstrap4 %}
 
 {% block content %}
-<div class="container d-flex justify-content-center align-items-center flex-column" style="min-height: 100vh; margin-top: 0%;">
-    <a class="btn btn-outline-primary btn-sm"  href="{% url 'reservas' %}" style="margin:1%;"><h3>&#8592; Voltar </h3></a>
-    <div class="d-flex">
-            <div class="b-block card mb-1 m-4 p-4">
-                <h3 class="card-title">{{ object.nome_empresa }}</h3>
-                <p>Categoria: {{ object.categoria_empresa }}</p>
-                <p>CNPJ: {{ object.cnpj }}</p>
-                <p>Quitado? {% if object.quitado %} Sim {% else %} Não {% endif %}</p>
-                <p>Stand: {{ object.stand }}</p>
-                <p>Valor do Stand: {{ object.stand.valor }}</p>
-                <a href="{% url 'reservas_remove' object.pk %}"
-                class="btn btn-primary bg-danger">
+<div class="container my-5">
+    <a class="btn btn-outline-primary btn-sm mb-3" href="{% url 'reservas' %}">
+        <i class="fas fa-arrow-left"></i> Voltar
+    </a>
+
+    <div class="card mx-auto" style="max-width: 400px;">
+        <div class="card-body">
+            <h3 class="card-title text-primary">{{ object.nome_empresa }}</h3>
+            <p class="card-text"><strong>CNPJ:</strong> {{ object.cnpj }}</p>
+            <p class="card-text"><strong>Categoria:</strong> {{ object.categoria_empresa }}</p>
+            <p class="card-text"><strong>Quitado:</strong> {% if object.quitado %} Sim {% else %} Não {% endif %}</p>
+            <p class="card-text"><strong>Stand:</strong> {{ object.stand }}</p>
+            <p class="card-text"><strong>Valor do Stand:</strong> R$ {{ object.stand.valor|floatformat:2 }}</p>
+            <a href="{% url 'reservas_remove' object.pk %}" class="btn btn-danger btn-block">
                 Remover Reserva
-                </a>
-            </div>
+            </a>
         </div>
     </div>
+</div>
 {% endblock %}

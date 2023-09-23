@@ -5,7 +5,7 @@ class Stand(models.Model):
     valor = models.IntegerField()
 
     def __str__(self) -> str:
-        return f"{self.localizacao} - {self.valor}"
+        return f"{self.localizacao}"
     
 
 class Reserva(models.Model):

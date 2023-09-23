@@ -2,27 +2,36 @@
 {% load bootstrap4 %}
 
 {% block content %}
-<a class="btn btn-outline-primary btn-sm"  href="{% url 'home' %}" style="margin:1%;"><h3>&#8592; Voltar </h3></a>
-<table class="table table-primary table-striped">
-    <thead>
-        <tr>
-          <th>Detalhes</th>
-          <th>CNPJ</th>
-          <th>Nome da empresa</th>
-          <th>Categoria</th>
-          <th>quitado</th>
-        </tr>
-    </thead>
-    <tbody>
-    {% for item in object_list %}
-    <tr>
-        <td><a href="{% url 'detail' item.pk %}">&#128269;</a></td>
-        <td>{{ item.cnpj }}</td>
-        <td>{{ item.nome_empresa }}</td>
-        <td>{{ item.categoria_empresa }}</td>
-        <td>{% if item.quitado %} Sim {% else %} Não {% endif %}</td>
-    </tr>
-    {% endfor %}
-    </tbody>
-  </table>
+<div class="container mt-4">
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'home' %}">
+        <i class="fas fa-arrow-left"></i> Voltar
+    </a>
+    
+    <table class="table table-striped mt-3">
+        <thead class="thead-primary">
+            <tr>
+                <th>Detalhes</th>
+                <th>CNPJ</th>
+                <th>Nome da Empresa</th>
+                <th>Categoria</th>
+                <th>Quitado</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in object_list %}
+            <tr>
+                <td>
+                    <a href="{% url 'detail' item.pk %}">
+                        &#128269;
+                    </a>
+                </td>
+                <td>{{ item.cnpj }}</td>
+                <td>{{ item.nome_empresa }}</td>
+                <td>{{ item.categoria_empresa }}</td>
+                <td>{% if item.quitado %} Sim {% else %} Não {% endif %}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
 {% endblock %}

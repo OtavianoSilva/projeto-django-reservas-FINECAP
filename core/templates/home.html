@@ -3,24 +3,16 @@
 
 {% block content %}
 <div class="container d-flex justify-content-center align-items-center" style="min-height: 100vh;">
-    <div style="display: flex; flex-wrap: wrap; flex-direction: row; align-items: center;">
+    <div class="d-flex flex-wrap justify-content-center">
 
-<a href="{% url 'cria_reserva' %}" style="text-decoration: None;">
-<div class="d-flex" style="margin-right: 20px;" >
-    <div class="btn btn-outline-primary btn-lg" >
-        <h3>Reservar</h3>
+        <a href="{% url 'cria_reserva' %}" class="btn btn-outline-primary btn-lg btn-block mb-4 square-btn">
+            <h3>Reservar</h3>
+        </a>
+
+        <a href="{% url 'reservas' %}" class="btn btn-outline-primary btn-lg btn-block square-btn">
+            <h3>Ver Reservas</h3>
+        </a>
+
     </div>
 </div>
-</a>
-
-<a href="{% url 'reservas' %}" style="text-decoration: None;" >
-<div class="d-flex">
-    <div class="btn btn-outline-primary btn-lg">
-        <h3>Ver reservas</h3>
-    </div>
-</div>
-</a>
-</div>
-</div>
-
 {% endblock %}
