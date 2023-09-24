@@ -15,7 +15,7 @@
             <p class="card-text"><strong>Quitado:</strong> {% if object.quitado %} Sim {% else %} Não {% endif %}</p>
             <p class="card-text"><strong>Stand:</strong> {{ object.stand }}</p>
             <p class="card-text"><strong>Valor do Stand:</strong> R$ {{ object.stand.valor|floatformat:2 }}</p>
-            <a href="{% url 'reservas_remove' object.pk %}" class="btn btn-danger btn-block">
+            <a href="{% url 'reserva_delete' object.pk %}" class="btn btn-danger btn-block">
                 Remover Reserva
             </a>
         </div>
