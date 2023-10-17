@@ -1,3 +1,5 @@
 from django.shortcuts import render
+from django.views.generic import TemplateView
 
-# Create your views here.
+class StandTemplateView(TemplateView):
+    template_name = 'stand_home.html'

@@ -3,7 +3,7 @@ from .views import *
 
 
 urlpatterns = [
-    path('', ReservaTemplateView.as_view(), name='home'),
+    path('rhome/', ReservaTemplateView.as_view(), name='reservas_home'),
     path('cria_reserva', ReservaFormView.as_view(), name='cria_reserva'),
     path('reservas/', ReservaListView.as_view(), name='reservas'),
     path('reservas/detail/<pk>', ReservaDetailView.as_view(), name='detail'),

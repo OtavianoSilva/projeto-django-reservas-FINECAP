@@ -7,8 +7,11 @@ from django.contrib import messages
 from .forms import ReservaModelFrom
 from .models import Reserva
 
+class HomePage(TemplateView):
+    template_name ="home.html"
+
 class ReservaTemplateView(TemplateView):
-    template_name = "home.html"
+    template_name = "reservas_home.html"
 
 class ReservaFormView(FormView):
     template_name = "reservaform.html"
@@ -26,6 +29,7 @@ class ReservaFormView(FormView):
 
 class ReservaListView(ListView):
     model = Reserva
+    paginate_by = 6
     template_name = "reservalist.html"
 
 class ReservaDetailView(DetailView):
