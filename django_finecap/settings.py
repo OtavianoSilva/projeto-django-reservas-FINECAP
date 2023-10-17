@@ -27,7 +27,8 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
 
     'bootstrap4',
-    'reservas'
+    'reservas',
+    'stands',
 ]
 
 MIDDLEWARE = [

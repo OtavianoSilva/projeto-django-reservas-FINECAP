@@ -17,11 +17,13 @@
                     <button type="submit" class="btn btn-danger btn-block">
                         Excluir
                     </button>
-                    <button href="{% url 'detail' object.pk %}" class="btn btn-outline-secondary btn-block">
-                        Cancelar
-                    </button>
                 </div>
             </form>
+            <a href="{% url 'detail' object.pk %}">
+                <div class="btn btn-outline-secondary btn-block mt-3">
+                            Cancelar
+                </div>
+            </a>
         </div>
     </div>
 </div>
