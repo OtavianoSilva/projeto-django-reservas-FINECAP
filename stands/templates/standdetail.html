@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+<div class="container my-5">
+    <a class="btn btn-outline-primary btn-sm mb-3" href="{% url 'stands' %}">
+        <i class="fas fa-arrow-left"></i> Voltar
+    </a>
+
+    <div class="card mx-auto" style="max-width: 400px;">
+        <div class="card-body">
+            <h3 class="card-title text-primary">{{ object.localizacao }}</h3>
+            <p class="card-text"><strong>cumprimento:</strong> {{ object.cumprimento }}</p>
+            <p class="card-text"><strong>largura:</strong> {{ object.largura }}</p>
+            <p class="card-text"><strong>valor:</strong> {{ object.valor }}</p>
+            <a href="{% url 'delete_stand' object.pk %}" class="btn btn-danger btn-block">
+                Remover Stand
+            </a>
+            <a href="#" class="btn btn-success btn-block">
+                Editar Stand
+            </a>
+        </div>
+    </div>
+</div>
+{% endblock %}

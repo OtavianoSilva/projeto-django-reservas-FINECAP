@@ -8,8 +8,8 @@
             <a class="btn btn-outline-primary btn-lg mb-4" href="{% url 'home' %}">
                 <i class="fas fa-arrow-left"></i> Voltar
             </a>
-            <h1 class="text-center mb-4">Formulário de Reserva</h1>
-            <form action="{% url 'cria_reserva' %}" method="post" class="form" autocomplete="off">
+            <h1 class="text-center mb-4">Registrar Stand</h1>
+            <form action="{% url 'cria_stand' %}" method="post" class="form" autocomplete="off">
                 {% csrf_token %}
                 {% bootstrap_form form %}
                 <div class="text-center">
