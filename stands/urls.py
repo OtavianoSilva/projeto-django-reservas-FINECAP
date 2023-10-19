@@ -1,5 +1,5 @@
 from django.urls import path
-from .views import StandTemplateView, StandListView, StandDetailView, StandFormView, StandDeleteView
+from .views import StandTemplateView, StandListView, StandDetailView, StandFormView, StandDeleteView, StandUpdateView
 
 
 urlpatterns = [
@@ -8,4 +8,5 @@ urlpatterns = [
     path('cria_stand', StandFormView.as_view(), name='cria_stand'),
     path('stands_detail/<pk>', StandDetailView.as_view(), name='stands_detail'),
     path('stands_detail/<pk>/delete_stand', StandDeleteView.as_view(), name='delete_stand'),
+    path('stands_detail/<pk>/update_stand', StandUpdateView.as_view(), name='update_stand'),
 ]

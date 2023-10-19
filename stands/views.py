@@ -3,7 +3,7 @@ from .models import Stand
 from django.urls import reverse_lazy, reverse
 from.forms import StandModelForm
 from django.contrib import messages
-from django.views.generic import TemplateView, ListView, DeleteView, FormView
+from django.views.generic import TemplateView, ListView, DeleteView, FormView, UpdateView
 from django.views.generic.edit import DeleteView
 
 class StandTemplateView(TemplateView):
@@ -42,3 +42,14 @@ class StandDeleteView(DeleteView):
     def delete(self, request, *args, **kwargs):
         messages.success(self.request, self.success_message)
         return super(StandDeleteView, self).delete(request, *args, **kwargs)
+    
+class StandUpdateView(UpdateView):
+    model = Stand
+    fields = ["localizacao", "cumprimento", "largura" ,"valor"]
+    template_name = 'stand_update_form.html'
+    template_name_suffix = "_update_form"
+    context_object_name = "object"
+
+    def get_success_url(self):
+        messages.success(self.request, "Stand atualizado com sucesso! :)")
+        return reverse('stands_detail', kwargs={'pk': self.object.pk})
