@@ -2,13 +2,12 @@
 {% load bootstrap4 %}
 
 {% block content %}
-<div class="container my-5">
-    <a class="btn btn-outline-primary btn-sm mb-3" href="{% url 'stands' %}">
-        <i class="fas fa-arrow-left"></i> Voltar
-    </a>
-
+<<div class="container my-5">
     <div class="card mx-auto" style="max-width: 400px;">
         <div class="card-body">
+                <a class="btn btn-outline-primary btn-sm mb-3" href="{% url 'stands' %}">
+                    <i class="fas fa-arrow-left"></i> Voltar
+                </a>
             <h3 class="card-title text-primary">{{ object.localizacao }}</h3>
             <p class="card-text"><strong>cumprimento:</strong> {{ object.cumprimento }}</p>
             <p class="card-text"><strong>largura:</strong> {{ object.largura }}</p>
@@ -22,4 +21,5 @@
         </div>
     </div>
 </div>
+
 {% endblock %}

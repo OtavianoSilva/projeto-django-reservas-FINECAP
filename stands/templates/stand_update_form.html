@@ -9,7 +9,7 @@
                 <i class="fas fa-arrow-left"></i> Voltar
             </a>
             <h1 class="text-center mb-4">Formulário de Stand</h1>
-            <form action="{% url 'reserva_update' object.pk %}" method="post" class="form" autocomplete="on">
+            <form action="{% url 'update_stand' object.pk %}" method="post" class="form" autocomplete="on">
                 {% csrf_token %}
                 {% bootstrap_form form %}
                 <div class="text-center">

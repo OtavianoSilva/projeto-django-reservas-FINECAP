@@ -16,10 +16,10 @@
         <thead class="thead-primary">
             <tr>
                 <th>Detalhes</th>
-                <th>CNPJ</th>
                 <th>Nome da Empresa</th>
                 <th>Categoria</th>
                 <th>Quitado</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -30,10 +30,19 @@
                       &#128269;
                     </a>
                 </td>
-                <td>{{ item.cnpj }}</td>
                 <td>{{ item.nome_empresa }}</td>
                 <td>{{ item.categoria_empresa }}</td>
                 <td>{% if item.quitado %} Sim {% else %} Não {% endif %}</td>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <a href="{% url 'reserva_update' item.pk %}" class="btn btn-primary btn-sm mr-2">
+                            Editar
+                        </a>
+                        <a href="{% url 'reserva_delete' item.pk %}" class="btn btn-danger btn-sm">
+                            Deletar
+                      </a>
+                    </div>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
@@ -63,12 +72,12 @@
                         {% if page_obj.has_previous %}
                             <li class="page-item">
                                 <a class="page-link" href="?page=1">
-                                    First
+                                    Primeiro
                                 </a>
                             </li>
                             <li class="page-item">
                                 <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
-                                    Previous
+                                    Prévio
                                 </a>
                             </li>
                         {% endif %}
@@ -101,12 +110,12 @@
                         {% if page_obj.has_next %}
                             <li class="page-item">
                                 <a class="page-link" href="?page={{ page_obj.next_page_number }}">
-                                    Next
+                                    Próximo
                                 </a>
                             </li>
                             <li class="page-item">
                                 <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">
-                                    Last
+                                    Último
                                 </a>
                             </li>
                         {% endif %}

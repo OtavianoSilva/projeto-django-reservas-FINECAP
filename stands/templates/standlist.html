@@ -17,9 +17,8 @@
             <tr>
                 <th>Detalhes</th>
                 <th>Localizacao</th>
-                <th>Cumprimento</th>
-                <th>Largura</th>
                 <th>Valor</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
@@ -31,9 +30,17 @@
                     </a>
                 </td>
                 <td>{{ item.localizacao }}</td>
-                <td>{{ item.cumprimento }}</td>
-                <td>{{ item.largura }}</td>
                 <td>{{ item.valor }}</td>
+                <td>
+                    <div class="d-flex align-items-center">
+                        <a href="{% url 'update_stand' item.pk %}" class="btn btn-primary btn-sm mr-2">
+                            Editar
+                        </a>
+                        <a href="{% url 'delete_stand' item.pk %}" class="btn btn-danger btn-sm">
+                            Deletar
+                    </a>
+                    </div>
+                </td>
             </tr>
             {% endfor %}
         </tbody>
@@ -63,12 +70,12 @@
                         {% if page_obj.has_previous %}
                             <li class="page-item">
                                 <a class="page-link" href="?page=1">
-                                    First
+                                    Primeiro
                                 </a>
                             </li>
                             <li class="page-item">
                                 <a class="page-link" href="?page={{ page_obj.previous_page_number }}">
-                                    Previous
+                                    Prévio
                                 </a>
                             </li>
                         {% endif %}
@@ -101,12 +108,12 @@
                         {% if page_obj.has_next %}
                             <li class="page-item">
                                 <a class="page-link" href="?page={{ page_obj.next_page_number }}">
-                                    Next
+                                    Próximo
                                 </a>
                             </li>
                             <li class="page-item">
                                 <a class="page-link" href="?page={{ page_obj.paginator.num_pages }}">
-                                    Last
+                                    Último
                                 </a>
                             </li>
                         {% endif %}

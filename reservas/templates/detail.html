@@ -3,12 +3,13 @@
 
 {% block content %}
 <div class="container my-5">
-    <a class="btn btn-outline-primary btn-sm mb-3" href="{% url 'reservas' %}">
-        <i class="fas fa-arrow-left"></i> Voltar
-    </a>
-
     <div class="card mx-auto" style="max-width: 400px;">
         <div class="card-body">
+
+            <a class="btn btn-outline-primary btn-sm mb-3" href="{% url 'reservas' %}">
+                <i class="fas fa-arrow-left"></i> Voltar
+            </a>
+
             <h3 class="card-title text-primary">{{ object.nome_empresa }}</h3>
             <p class="card-text"><strong>CNPJ:</strong> {{ object.cnpj }}</p>
             <p class="card-text"><strong>Categoria:</strong> {{ object.categoria_empresa }}</p>
