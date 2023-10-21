@@ -5,6 +5,7 @@ class Stand(models.Model):
     cumprimento = models.IntegerField()
     largura = models.IntegerField()
     valor = models.IntegerField()
+    imagem = models.ImageField(upload_to='media')
 
     def __str__(self) -> str:
         return f"{self.localizacao}"

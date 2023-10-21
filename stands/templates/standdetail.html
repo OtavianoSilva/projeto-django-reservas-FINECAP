@@ -8,6 +8,7 @@
                 <a class="btn btn-outline-primary btn-sm mb-3" href="{% url 'stands' %}">
                     <i class="fas fa-arrow-left"></i> Voltar
                 </a>
+            <img src="{{ object.imagem.url }}" class="card-img-top" alt="Imagem do Stand">
             <h3 class="card-title text-primary">{{ object.localizacao }}</h3>
             <p class="card-text"><strong>cumprimento:</strong> {{ object.cumprimento }}</p>
             <p class="card-text"><strong>largura:</strong> {{ object.largura }}</p>
