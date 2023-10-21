@@ -6,6 +6,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Reservas FINCECAP</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
     {% bootstrap_css %}
 </head>
@@ -34,6 +35,12 @@
         {% endblock %}
 
     {% bootstrap_javascript jquery='full' %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+    <script>
+        $(document).ready(function () {
+          $('#id_cnpj').inputmask('99.999.999/9999-99', {reverse: true});
+        });
+      </script>
 </body>
 </html>
     
