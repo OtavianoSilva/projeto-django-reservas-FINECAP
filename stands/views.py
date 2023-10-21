@@ -7,19 +7,19 @@ from django.views.generic import TemplateView, ListView, DeleteView, FormView, U
 from django.views.generic.edit import DeleteView
 
 class StandTemplateView(TemplateView):
-    template_name = 'stand_home.html'
+    template_name = 'stand/stand_home.html'
 
 class StandListView(ListView):
     model = Stand
     paginate_by = 6
-    template_name = 'standlist.html'
+    template_name = 'stand/standlist.html'
 
 class StandDetailView(DeleteView):
     model = Stand
-    template_name = 'standdetail.html'
+    template_name = 'stand/standdetail.html'
 
 class StandFormView(FormView):
-    template_name = 'standform.html'
+    template_name = 'stand/standform.html'
     form_class = StandModelForm
     success_url = 'cria_stand'
 
@@ -34,7 +34,7 @@ class StandFormView(FormView):
     
 class StandDeleteView(DeleteView):
     model = Stand
-    template_name = 'stand_confirm_delete.html'
+    template_name = 'stand/stand_confirm_delete.html'
     context_object_name = "object"
     success_url = reverse_lazy("stands")
     success_message = "Stand deletado com sucesso! :)"
@@ -46,7 +46,7 @@ class StandDeleteView(DeleteView):
 class StandUpdateView(UpdateView):
     model = Stand
     fields = ["localizacao", "cumprimento", "largura" ,"valor"]
-    template_name = 'stand_update_form.html'
+    template_name = 'stand/stand_update_form.html'
     template_name_suffix = "_update_form"
     context_object_name = "object"
 

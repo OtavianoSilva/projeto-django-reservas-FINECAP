@@ -1,0 +1,89 @@
+{% load bootstrap4 %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reservas FINCECAP</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+    {% bootstrap_css %}
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-primary">
+        <div class="container">
+            <a class="navbar-brand" href="{% url 'home' %}">Dashboard</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <section class="d-flex">
+                <div class="header-login">
+                  {% if request.user.is_anonymous %}
+                  <div class="btn-group" role="group" aria-label="Entrar ou Cadastrar">
+                    <a href="{% url 'account_login' %}" class="btn btn-primary" type="button" data-trigger="login">
+                      <i class="fas fa-user" aria-hidden="true"></i> Entrar
+                    </a>
+                    <a href="{% url 'account_signup' %}" class="btn btn-primary" type="button">
+                      <i class="fas fa-user-plus" aria-hidden="true"></i> Cadastrar-se
+                    </a>
+                  </div>
+                  {% endif %}
+                  {% if request.user.is_authenticated %}
+                  <div class="header-avatar text-center">
+                    <div class="avatar dropdown mx-auto">
+                      <button class="btn btn-secondary btn-round dropdown-toggle" type="button" id="userMenu"
+                              data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="fas fa-user" aria-hidden="true">{{ request.user }}</i>
+                      </button>
+                      <div class="dropdown-menu user-menu" aria-labelledby="userMenu">
+                        <div class="row">
+                          <div class="col-12 text-center">
+                            <div class="user-info my-auto">
+                              <h4 class="text-bold">{{ request.user }}</h4>
+                              <small>{{ request.user.email }}</small><br />
+                              <small><a style="text-decoration: none;" href="{% url 'account_change_password' %}">Alterar senha</a></small>
+                            </div>
+                          </div>
+                        </div>
+                        <div class="dropdown-divider"></div>
+                        <div class="row">
+                          <div class="col-12 text-center">
+                            <form method="post" action="{% url 'account_logout' %}">
+                              {% csrf_token %}
+                              {% if redirect_field_value %}
+                              <input type="hidden" name="{{ redirect_field_name }}"
+                                     value="{{ redirect_field_value }}" />
+                              {% endif %}
+                              <button class="btn btn-danger btn-round btn-block" type="submit">
+                                <i class="fas fa-sign-out-alt" aria-hidden="true">Sair</i>
+                              </button>
+                            </form>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  {% endif %}                 
+                </div>
+              </section>
+        </div>
+    </nav>
+
+    <div class="container mt-4">
+        {% bootstrap_messages %}
+
+    </div>
+        {% block content %}
+        {% endblock %}
+
+    {% bootstrap_javascript jquery='full' %}
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.inputmask/5.0.6/jquery.inputmask.min.js"></script>
+    <script>
+        $(document).ready(function () {
+          $('#id_cnpj').inputmask('99.999.999/9999-99', {reverse: true});
+        });
+      </script>
+</body>
+</html>
+    

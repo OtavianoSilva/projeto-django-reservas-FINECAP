@@ -18,10 +18,10 @@ class HomePage(TemplateView):
         return context
 
 class ReservaTemplateView(TemplateView):
-    template_name = "reservas_home.html"
+    template_name = "reservas/reservas_home.html"
 
 class ReservaFormView(FormView):
-    template_name = "reservaform.html"
+    template_name = "reservas/reservaform.html"
     form_class = ReservaModelFrom
     success_url = "cria_reserva"
 
@@ -37,15 +37,15 @@ class ReservaFormView(FormView):
 class ReservaListView(ListView):
     model = Reserva
     paginate_by = 6
-    template_name = "reservalist.html"
+    template_name = "reservas/reservalist.html"
 
 class ReservaDetailView(DetailView):
     model = Reserva
-    template_name = "detail.html"
+    template_name = "reservas/detail.html"
     
 class ReservaDeleteView(DeleteView):
     model = Reserva
-    template_name = 'confirm_delete.html'
+    template_name = 'reservas/confirm_delete.html'
     context_object_name = "object"
     success_url = reverse_lazy("reservas")
     success_message = "Reserva deletada com sucesso! :)"
@@ -57,7 +57,7 @@ class ReservaDeleteView(DeleteView):
 class ReservaUpdateView(UpdateView):
     model = Reserva
     fields = ["cnpj", "nome_empresa", "categoria_empresa", "quitado", "stand"]
-    template_name = "reserva_update_form.html"
+    template_name = "reservas/reserva_update_form.html"
     template_name_suffix = "_update_form"
     context_object_name = "object"
 

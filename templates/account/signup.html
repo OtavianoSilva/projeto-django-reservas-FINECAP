@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+
+{% load i18n %}
+
+{% block head_title %}{% trans "Cadastro" %}{% endblock head_title %}
+
+{% block content %}
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card mt-5">
+                <div class="card-header">
+                    <h1 class="text-center">{% trans "Cadastro" %}</h1>
+                </div>
+                <div class="card-body">
+                    <p class="text-center">{% blocktrans %}Já tem uma conta? Então por favor, <a href="{{ login_url }}">faça login</a>.{% endblocktrans %}</p>
+
+                    <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
+                        {% csrf_token %}
+                        {{ form.as_p }}
+                        {% if redirect_field_value %}
+                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                        {% endif %}
+                        <button class="btn btn-primary" type="submit">{% trans "Cadastrar" %} &raquo;</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock content %}
+
