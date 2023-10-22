@@ -26,7 +26,7 @@
             {% for item in object_list %}
             <tr>
                 <td>
-                    <a href="{% url 'detail' item.pk %}">
+                    <a href="{% url 'reservas-detail' item.pk %}">
                       &#128269;
                     </a>
                 </td>
@@ -35,10 +35,10 @@
                 <td>{% if item.quitado %} Sim {% else %} Não {% endif %}</td>
                 <td>
                     <div class="d-flex align-items-center">
-                        <a href="{% url 'reserva_update' item.pk %}" class="btn btn-primary btn-sm mr-2">
+                        <a href="{% url 'reservas-update' item.pk %}" class="btn btn-primary btn-sm mr-2">
                             Editar
                         </a>
-                        <a href="{% url 'reserva_delete' item.pk %}" class="btn btn-danger btn-sm">
+                        <a href="{% url 'reservas-delete' item.pk %}" class="btn btn-danger btn-sm">
                             Deletar
                       </a>
                     </div>

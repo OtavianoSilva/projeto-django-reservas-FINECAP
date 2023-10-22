@@ -1,6 +1,10 @@
 from django.db import models
 
 class Stand(models.Model):
+
+    class Meta:
+        app_label = 'stands'
+
     localizacao = models.CharField(max_length=160)
     cumprimento = models.IntegerField()
     largura = models.IntegerField()

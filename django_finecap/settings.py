@@ -30,6 +30,7 @@ INSTALLED_APPS = [
 
     'reservas',
     'stands',
+    'main',
 
     'bootstrap4',
 
@@ -95,6 +96,8 @@ AUTHENTICATION_BACKENDS = [
     'allauth.account.auth_backends.AuthenticationBackend',
 ]
 
+LOGIN_REDIRECT_URL = 'home'
+
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
 
@@ -141,3 +144,5 @@ MEDIA_URL = '/media/'
 # https://docs.djangoproject.com/en/4.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
+EMAIL_BACKEND = 'django.reservas.mail.backends.console.EmailBackend'
+ACCOUNT_EMAIL_VERIFICATION = "none"

@@ -39,7 +39,7 @@
                         {% csrf_token %}
                         {{ form.as_p }}
                         {% if redirect_field_value %}
-                        <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
+                        <input type="hidden" name="{{ home }}" value="{{ redirect_field_value }}" />
                         {% endif %}
                         <a class="btn btn-secondary" href="{% url 'account_reset_password' %}">{% trans "Esqueceu a senha?" %}</a>
                         <button class="btn btn-primary" type="submit">{% trans "Entrar" %}</button>

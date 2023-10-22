@@ -3,6 +3,10 @@ from stands.models import Stand
     
 
 class Reserva(models.Model):
+
+    class Meta:
+        app_label = 'reservas'
+
     cnpj = models.CharField(max_length=18)
     nome_empresa = models.CharField(max_length=160)
     categoria_empresa = models.CharField(max_length=160)

@@ -5,11 +5,11 @@
 <div class="container my-5">
     <div class="row justify-content-center">
         <div class="col-md-6">
-            <a class="btn btn-outline-primary btn-lg mb-4" href="{% url 'detail' object.pk %}">
+            <a class="btn btn-outline-primary btn-lg mb-4" href="{% url 'reservas-detail' object.pk %}">
                 <i class="fas fa-arrow-left"></i> Voltar
             </a>
             <h1 class="text-center mb-4">Formulário de Reserva</h1>
-            <form action="{% url 'reserva_update' object.pk %}" method="post" class="form" autocomplete="on">
+            <form action="{% url 'reservas-update' object.pk %}" method="post" class="form" autocomplete="on">
                 {% csrf_token %}
                 {% bootstrap_form form %}
                 <div class="text-center">
