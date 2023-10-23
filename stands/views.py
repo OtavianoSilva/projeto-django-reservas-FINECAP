@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.views.generic import TemplateView, ListView, DeleteView, FormView, UpdateView
 from django.views.generic.edit import DeleteView
 
+
 class StandTemplateView(TemplateView):
     template_name = 'stand/stand_home.html'
 
@@ -27,6 +28,9 @@ class StandFormView(FormView):
     template_name = 'stand/standform.html'
     form_class = StandModelForm
     success_url = 'cria_stand'
+
+    def dispatch(self, *args, **kwargs):
+        return super().dispatch(*args, **kwargs)
 
     def form_valid(self, form):
         form.save(commit=True)
@@ -50,7 +54,7 @@ class StandDeleteView(DeleteView):
     
 class StandUpdateView(UpdateView):
     model = Stand
-    fields = ["localizacao", "cumprimento", "largura", "esta_reservado", "valor"]
+    fields = ["localizacao", "cumprimento", "largura", "valor", "imagem"]
     template_name = 'stand/stand_update_form.html'
     template_name_suffix = "_update_form"
     context_object_name = "object"

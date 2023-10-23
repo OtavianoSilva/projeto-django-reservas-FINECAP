@@ -9,7 +9,7 @@
                 <i class="fas fa-arrow-left"></i> Voltar
             </a>
             <h1 class="text-center mb-4">Registrar Stand</h1>
-            <form action="{% url 'cria_stand' %}" method="post" class="form" autocomplete="off">
+            <form action="{% url 'cria_stand' %}" method="post" class="form" autocomplete="off" enctype="multipart/form-data">
                 {% csrf_token %}
                 {% bootstrap_form form %}
                 <div class="text-center">

@@ -5,20 +5,28 @@
 <div class="container my-5">
     <div class="card mx-auto" style="max-width: 400px;">
         <div class="card-body">
+            {% if user.is_staff %}
                 <a class="btn btn-outline-primary btn-sm mb-3" href="{% url 'stands' %}">
                     <i class="fas fa-arrow-left"></i> Voltar
                 </a>
+            {% else %}
+            <a class="btn btn-outline-primary btn-sm mb-3" href="{% url 'stands-card' %}">
+                <i class="fas fa-arrow-left"></i> Voltar
+            </a>
+            {% endif %}
             <img src="{{ object.imagem.url }}" class="card-img-top" alt="Imagem do Stand">
             <h3 class="card-title text-primary">{{ object.localizacao }}</h3>
             <p class="card-text"><strong>cumprimento:</strong> {{ object.cumprimento }}</p>
             <p class="card-text"><strong>largura:</strong> {{ object.largura }}</p>
             <p class="card-text"><strong>valor:</strong> {{ object.valor }}</p>
+            {% if user.is_staff %}
             <a href="{% url 'delete_stand' object.pk %}" class="btn btn-danger btn-block">
                 Remover Stand
             </a>
             <a href="{% url 'update_stand' object.pk %}" class="btn btn-success btn-block">
                 Editar Stand
             </a>
+            {% endif %}
         </div>
     </div>
 </div>

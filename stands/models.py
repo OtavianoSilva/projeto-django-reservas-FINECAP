@@ -11,8 +11,8 @@ class Stand(models.Model):
     largura = models.IntegerField()
     valor = models.IntegerField()
     esta_reservado = models.BooleanField(default=False)
-    imagem = models.ImageField(upload_to='media')
-    empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE, default=0)
+    imagem = models.ImageField(verbose_name= 'imagem', upload_to='media', null=True, blank=True)
+    empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE, default=1)
 
     def __str__(self) -> str:
         return f"{self.localizacao}"
