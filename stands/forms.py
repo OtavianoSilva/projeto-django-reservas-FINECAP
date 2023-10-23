@@ -4,4 +4,4 @@ from .models import Stand
 class StandModelForm(ModelForm):
     class Meta:
         model = Stand
-        fields = ['localizacao', 'cumprimento', 'largura', 'valor']
+        fields = ['localizacao', 'cumprimento', 'largura', 'valor', 'imagem']

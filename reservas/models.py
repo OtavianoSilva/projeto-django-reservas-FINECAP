@@ -14,7 +14,7 @@ class Reserva(models.Model):
     data_reserva = models.DateTimeField(auto_now_add=True)
 
     stand = models.OneToOneField(Stand, on_delete=models.CASCADE, default=0)
-    empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE, default=0)
+    empresa = models.ForeignKey(Empresa, on_delete=models.CASCADE, default=1)
     
     def __str__(self) -> str:
         return self.nome_empresa
@@ -22,9 +22,11 @@ class Reserva(models.Model):
     def save(self, *args, **kwargs):
         super(Reserva, self).save(*args, **kwargs)
 
-        self.empresa.estoque -= 1
-        self.empresa.save()
+        obj = Empresa.objects.get(id=self.empresa.id)
+
+        obj.estoque =  int(obj.estoque) - 1
+        obj.save()
         if self.quitado:
-            self.faturamento += self.stand.valor
-            self.empresa.save()
+            obj.faturamento += float(obj.faturamento) + self.stand.valor
+            obj.save()
 

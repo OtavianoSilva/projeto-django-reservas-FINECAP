@@ -14,6 +14,11 @@ class StandListView(ListView):
     paginate_by = 6
     template_name = 'stand/standlist.html'
 
+class StandCardListView(ListView):
+    model = Stand
+    paginate_by = 6
+    template_name = 'stand/standcardlist.html'
+
 class StandDetailView(DeleteView):
     model = Stand
     template_name = 'stand/standdetail.html'

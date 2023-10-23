@@ -14,39 +14,30 @@
     
     <h2>Stands</h2>
 
-    <table class="table table-striped mt-3">
-        <thead class="thead-primary">
-            <tr>
-                <th>Detalhes</th>
-                <th>Localizacao</th>
-                <th>Valor</th>
-                <th>Ações</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for item in object_list %}
-            <tr>
-                <td>
-                    <a href="{% url 'stands_detail' item.pk %}">
-                      &#128269;
+    <div class=" row container my-5">
+        {% for object in object_list %}
+        <div class="card mx-auto" style="max-width: 400px;">
+            <div class="card-body">
+                    <a class="btn btn-outline-primary btn-sm mb-3" href="{% url 'stands' %}">
+                        <i class="fas fa-arrow-left"></i> Voltar
                     </a>
-                </td>
-                <td>{{ item.localizacao }}</td>
-                <td>{{ item.valor }}</td>
-                <td>
-                    <div class="d-flex align-items-center">
-                        <a href="{% url 'update_stand' item.pk %}" class="btn btn-primary btn-sm mr-2">
-                            Editar
-                        </a>
-                        <a href="{% url 'delete_stand' item.pk %}" class="btn btn-danger btn-sm">
-                            Deletar
+                <img src="{{ object.imagem.url }}" class="card-img-top" alt="Imagem do Stand">
+                <h3 class="card-title text-primary">{{ object.localizacao }}</h3>
+                <p class="card-text"><strong>cumprimento:</strong> {{ object.cumprimento }}</p>
+                <p class="card-text"><strong>largura:</strong> {{ object.largura }}</p>
+                {% if object.esta_reservado %}
+                    <a href="#" class="btn btn-secondary btn-block">
+                        Reservado
                     </a>
-                    </div>
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
+                {% else %}
+                    <a href="{% url 'stands_detail' object.pk %}" class="btn btn-info btn-block">
+                        Detalhes
+                    </a>
+                {% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
 
     <div class="container">
         <div class="row">

@@ -5,6 +5,7 @@
 <div class="container text-start">
     <h2 class="mt-3">Dashboard</h2>
     <div class="row mt-3">
+        {% if user.is_staff %}
         <div class="col-md-4 mx-auto">
             <a href="{% url 'reservas-list' %}" class="card text-white bg-success mb-3" style="text-decoration: none;">
                 <div class="card-header">Reservas</div>
@@ -25,5 +26,26 @@
         </a>
         </div>
     </div>
+        {% endif %}
+    <div class="row mt-3">
+        <div class="col-md-4 mx-auto">
+            <a href="{% url 'cria_reserva' %}" class="card text-white bg-info mb-3" style="text-decoration: none;">
+                <div class="card-header">Fazer reserva</div>
+                <div class="card-body">
+                    <h5 class="card-title">Toque para fazer reserva:</h5>
+                </div>
+            </a>
+        </div>
+
+        <div class="col-md-4 mx-auto">
+            <a href="{% url 'stands-card' %}" class="card text-white bg-info mb-3" style="text-decoration: none;">
+                <div class="card-header">Ver Stands</div>
+                <div class="card-body">
+                    <h5 class="card-title">Toque para ver os stands</h5>
+                    <p class="card-text"> Número de stands: {{ num_stands }}</p>
+                </div>
+            </a>
+        </div>
+    </div>  
 </div>
 {% endblock %}
