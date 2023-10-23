@@ -50,7 +50,7 @@ class StandDeleteView(DeleteView):
     
 class StandUpdateView(UpdateView):
     model = Stand
-    fields = ["localizacao", "cumprimento", "largura" ,"valor"]
+    fields = ["localizacao", "cumprimento", "largura", "esta_reservado", "valor"]
     template_name = 'stand/stand_update_form.html'
     template_name_suffix = "_update_form"
     context_object_name = "object"

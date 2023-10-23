@@ -1,0 +1,35 @@
+{% extends 'base.html' %}
+{% load bootstrap4 %}
+
+{% block content %}
+<div class="container mt-4">
+    <a class="btn btn-outline-primary btn-sm" href="{% url 'home' %}">
+        <i class="fas fa-arrow-left"></i> Voltar
+    </a>
+    
+    <h1>Status atual:</h1>
+
+    <table class="table table-striped mt-3">
+        <thead class="thead-primary">
+            <tr>
+                <th>Nome</th>
+                <th>faturamento</th>
+                <th>Stands em estoque</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in object_list %}
+            <tr>
+                <td>{{ item.nome }}</td>
+                <td>{{ item.faturamento }}</td>
+                <td>
+                    {{ item.estoque }}
+                    <a href="{% url 'stands' %}">
+                      &#128269;
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

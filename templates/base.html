@@ -17,6 +17,23 @@
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
+
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active dropdown">
+                <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  Ações
+                </a>
+                <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                  <a class="dropdown-item" href="{% url 'cria_reserva' %}" >Fazer reserva</a>
+                  <a class="dropdown-item" href="{% url 'stands-card' %}">Ver stands</a>
+              </li>
+              {% if user.is_staff %}
+              <li class="nav-item active">
+                <a class="nav-link" href="{% url 'empresa-status' %}">Faturamento e estoque<span class="sr-only">(current)</span></a>
+              </li>
+              {% endif %}
+            </ul>
+
             <section class="d-flex">
                 <div class="header-login">
                   {% if request.user.is_anonymous %}

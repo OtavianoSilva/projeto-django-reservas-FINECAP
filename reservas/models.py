@@ -22,11 +22,17 @@ class Reserva(models.Model):
     def save(self, *args, **kwargs):
         super(Reserva, self).save(*args, **kwargs)
 
-        obj = Empresa.objects.get(id=self.empresa.id)
+        emp = Empresa.objects.get(id=self.empresa.id)
 
-        obj.estoque =  int(obj.estoque) - 1
-        obj.save()
+        emp.estoque =  int(emp.estoque) - 1
+        emp.save()
         if self.quitado:
-            obj.faturamento += float(obj.faturamento) + self.stand.valor
-            obj.save()
+            emp.faturamento += float(emp.faturamento) + self.stand.valor
+            emp.save()
+
+        std = Stand.objects.get(id=self.stand.id)
+
+        std.esta_reservado = True
+
+        std.save()
 

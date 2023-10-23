@@ -1,5 +1,6 @@
 from django.shortcuts import render
-from django.views.generic import TemplateView
+from django.views.generic import TemplateView, ListView
+from .models import Empresa
 from reservas.models import Reserva
 from stands.models import Stand
 
@@ -11,3 +12,8 @@ class HomePage(TemplateView):
         context['num_reservas'] = Reserva.objects.count()
         context['num_stands'] = Stand.objects.count()
         return context
+
+class EmpresaStatus(ListView):
+    model = Empresa
+    paginate_by = 1
+    template_name = 'main/empresa_status.html'

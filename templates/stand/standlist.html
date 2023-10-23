@@ -19,6 +19,7 @@
             <tr>
                 <th>Detalhes</th>
                 <th>Localizacao</th>
+                <th>Esta reservado?</th>
                 <th>Valor</th>
                 <th>Ações</th>
             </tr>
@@ -32,6 +33,7 @@
                     </a>
                 </td>
                 <td>{{ item.localizacao }}</td>
+                <td>{% if item.esta_reservado %} Sim {% else %} Não {% endif %} </td>
                 <td>{{ item.valor }}</td>
                 <td>
                     <div class="d-flex align-items-center">
